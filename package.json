@@ -2,7 +2,10 @@
   "name": "react-toggle-display",
   "version": "0.0.1",
   "description": "Hide/show a component's children",
-  "repository": "https://github.com/ccnokes/react-toggle-display",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ccnokes/react-toggle-display"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +18,7 @@
   ],
   "author": "Cameron Nokes",
   "license": "MIT",
-  "dependencies": {
-    "react": "^0.13.3"
+  "peerDependencies": {
+    "react": ">=0.11.0"
   }
 }
