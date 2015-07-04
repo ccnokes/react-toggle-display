@@ -14,7 +14,8 @@
     "react",
     "hide",
     "show",
-    "toggle"
+    "toggle",
+    "component"
   ],
   "author": "Cameron Nokes",
   "license": "MIT",

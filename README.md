@@ -2,6 +2,12 @@
 
 A stateless react component that toggles the display of it's children. It's like `ng-show` or `ng-hide` but for react. 
 
+This allows you to DRY up statements liks this:
+
+```javascript
+<div className={this.props.shouldHide ? 'hidden' : ''}>
+```
+
 [View demo](https://jsfiddle.net/ccnokes/oqttsu83/)
 
 Example usage: 
@@ -28,6 +34,8 @@ export default React.createClass({
 });
 
 ```
+The component supports the `hide` or `show` props and expects a boolean for both.
+
 
 ## Install
 
