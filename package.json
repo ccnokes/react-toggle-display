@@ -1,0 +1,20 @@
+{
+  "name": "react-toggle-display",
+  "version": "0.0.0",
+  "description": "Hide/show a component's children",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "hide",
+    "show",
+    "toggle"
+  ],
+  "author": "Cameron Nokes",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^0.13.3"
+  }
+}
