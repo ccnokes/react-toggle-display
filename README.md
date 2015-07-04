@@ -15,7 +15,7 @@ export default React.createClass({
 		return {
 			isAuthorized: false
 		};
-	}
+	},
 
 	render() {
 		return (

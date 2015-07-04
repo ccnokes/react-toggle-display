@@ -1,6 +1,6 @@
 {
   "name": "react-toggle-display",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Hide/show a component's children",
   "main": "index.js",
   "scripts": {
