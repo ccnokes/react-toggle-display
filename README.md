@@ -28,3 +28,9 @@ export default React.createClass({
 });
 
 ```
+
+## Install
+
+```
+npm install react-toggle-display
+```
