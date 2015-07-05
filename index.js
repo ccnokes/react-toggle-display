@@ -11,33 +11,31 @@ module.exports = React.createClass({
 		show: React.PropTypes.bool
 	},
 
-	render: function() {
+	shouldHide: function() {
 		var shouldHide;
-        if(isDefined(this.props.show)) { 
-            shouldHide = !this.props.show;
-        }
-        else if(isDefined(this.props.hide)) {
-            shouldHide = this.props.hide;
-        }
-        else {
-            shouldHide = false;
-        }
-        
-		var style = {};
-		
-		if(shouldHide) {
-			style = {
-				display: 'none !important'
-			};
+		if(isDefined(this.props.show)) { 
+			shouldHide = !this.props.show;
+		}
+		else if(isDefined(this.props.hide)) {
+			shouldHide = this.props.hide;
+		}
+		else {
+			shouldHide = false;
 		}
 
-		//the key attr ensures that the DOM is updated on props change
-		//not sure why style attr changes don't trigger a DOM update, see:
-		//http://stackoverflow.com/questions/28976460/react-js-how-to-make-inline-styles-automatically-update-progress-bar-on-state-c
+		return shouldHide;		
+	},
+
+	render: function() {
+		var style = {};
+		
+		if(this.shouldHide()) {
+			style.display = 'none';
+		}
+
 		return (
-			<span key={shouldHide} style={style} {...this.props} />
+			<span style={style} {...this.props} />
 		);
 	}
-
 
 });
