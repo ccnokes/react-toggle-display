@@ -42,3 +42,13 @@ The component supports the `hide` or `show` props and expects a boolean for both
 ```
 npm install react-toggle-display
 ```
+
+## Tests
+
+To run tests: 
+
+```
+npm test
+```
+
+Note that tests have to be run on node version 0.10. See [https://github.com/facebook/react/issues/1881](https://github.com/facebook/react/issues/1881) for why.
