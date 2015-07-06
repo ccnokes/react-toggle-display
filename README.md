@@ -51,4 +51,4 @@ To run tests:
 npm test
 ```
 
-Note that tests have to be run on node version 0.10. See [https://github.com/facebook/react/issues/1881](https://github.com/facebook/react/issues/1881) for why.
+Note that tests have to be run on node version 0.10. See [https://github.com/facebook/jest/issues/243](https://github.com/facebook/jest/issues/243) for why.
