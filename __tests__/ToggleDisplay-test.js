@@ -1,7 +1,7 @@
-jest.dontMock('../index.js');
+jest.dontMock('../index.jsx');
 
 var React = require('react/addons');
-var ToggleDisplay = require('../index.js');
+var ToggleDisplay = require('../index.jsx');
 var TestUtils = React.addons.TestUtils;
 
 describe('ToggleDisplay', function() {
