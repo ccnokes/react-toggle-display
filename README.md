@@ -1,5 +1,7 @@
 # react-toggle-display
 
+[![Build Status](https://travis-ci.org/ccnokes/react-toggle-display.svg?branch=master)](https://travis-ci.org/ccnokes/react-toggle-display)
+
 A stateless react component that toggles the display of it's children. It's like `ng-show` or `ng-hide` but for react. 
 
 This allows you to DRY up statements liks this:
