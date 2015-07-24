@@ -10,8 +10,6 @@ This allows you to DRY up statements liks this:
 <div className={this.props.shouldHide ? 'hidden' : ''}>
 ```
 
-[View demo](https://jsfiddle.net/ccnokes/oqttsu83/)
-
 Example usage: 
 
 ```javascript
@@ -36,7 +34,17 @@ export default React.createClass({
 });
 
 ```
-The component supports the `hide` or `show` props and expects a boolean for both.
+[View demo](https://jsfiddle.net/ccnokes/oqttsu83/)
+
+Note that if you are using a version under 0.1.1, you will have to compile react-toggle-display's JSX yourself. I recommend just updating to 1.0 so you don't have to wory about that. No breaking API changes in 1.0.
+
+## Props
+
+`hide` - boolean
+
+`show` - boolean
+
+The two props are simply the inverse of each other. Using both at the same time will result in canceling each other out.
 
 
 ## Install
