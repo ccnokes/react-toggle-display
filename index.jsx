@@ -8,7 +8,8 @@ module.exports = React.createClass({
 	
 	propTypes: {
 		hide: React.PropTypes.bool,
-		show: React.PropTypes.bool
+		show: React.PropTypes.bool,
+		if: React.PropTypes.bool
 	},
 
 	shouldHide: function() {
@@ -27,6 +28,10 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
+
+		if(this.props.if === false)
+			return <span />;
+
 		var style = {};
 		
 		if(this.shouldHide()) {

@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ccnokes/react-toggle-display.svg?branch=master)](https://travis-ci.org/ccnokes/react-toggle-display)
 
-A stateless react component that toggles the display of it's children. It's like `ng-show` or `ng-hide` but for react. 
+A stateless react component that toggles the display of it's children. It's like `ng-show`, `ng-hide` or `ng-if` but for react. 
 
 This allows you to DRY up statements liks this:
 
@@ -44,7 +44,9 @@ Note that if you are using a version under 0.1.1, you will have to compile react
 
 `show` - boolean
 
-The two props are simply the inverse of each other. Using both at the same time will result in canceling each other out.
+`if` - boolean
+
+The two first props are simply the inverse of each other. Using both at the same time will result in canceling each other out.
 
 
 ## Install
