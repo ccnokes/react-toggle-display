@@ -58,5 +58,27 @@ describe('ToggleDisplay', function() {
 		expect(tdHideRoot.props.hide).toEqual(true);
 		expect(tdHideRoot.props.style).toEqual({display:'none'});
 	});
+
+	it('should load it\'s children as configured', function() {
+		var tdShow = TestUtils.renderIntoDocument(
+			<ToggleDisplay if={true}>
+				<p>test</p>
+			</ToggleDisplay>
+		);
+
+		var tdHide = TestUtils.renderIntoDocument(
+			<ToggleDisplay if={false}>
+				<p>test</p>
+			</ToggleDisplay>
+		);
+
+		var tdShowRoot = TestUtils.findRenderedDOMComponentWithTag(tdShow, 'span');
+		var tdHideRoot = TestUtils.findRenderedDOMComponentWithTag(tdHide, 'span');
+
+		expect(tdShowRoot.props.if).toEqual(true);
+		expect(tdShowRoot.props.style).toEqual({});
+
+		expect(tdHideRoot.props).toEqual({});
+	});
 	
 });
