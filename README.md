@@ -36,7 +36,7 @@ export default React.createClass({
 ```
 [View demo](https://jsfiddle.net/ccnokes/oqttsu83/)
 
-Note that if you are using a version under 0.1.1, you will have to compile react-toggle-display's JSX yourself. I recommend just updating to 1.0 so you don't have to wory about that. No breaking API changes in 1.0.
+Note that if you are using a version under 0.1.1, you will have to compile react-toggle-display's JSX yourself. I recommend just updating to 1.x so you don't have to wory about that. No breaking API changes in 1.x.
 
 ## Props
 
@@ -64,3 +64,10 @@ npm test
 ```
 
 Note that tests have to be run on node version 0.10. See [https://github.com/facebook/jest/issues/243](https://github.com/facebook/jest/issues/243) for why.
+
+
+## Contributors
+
+Big thanks to [willgm](https://github.com/willgm) for his contributions. 
+
+
