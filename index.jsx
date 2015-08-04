@@ -46,8 +46,10 @@
 
 		render: function() {
 
-			if(this.props.if === false)
-				return <span />;
+			//renders a <noscript> per React's implementation
+			if(this.props.if === false) {
+				return null;
+			}
 
 			var style = {};
 
