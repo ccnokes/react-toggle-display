@@ -73,8 +73,9 @@ describe('ToggleDisplay', function() {
 		);
 
 		var tdShowRoot = TestUtils.findRenderedDOMComponentWithTag(tdShow, 'span');
-		//react returns a <noscript> if null is returned, so we check for that
-		var tdHideRoot = TestUtils.findRenderedDOMComponentWithTag(tdHide, 'noscript');
+		//react returns a <noscript> if null is returned but that behavior doesn't seem to be testable
+		//instead, check for the <p>. It shouldn't be there and an empty array should be returned
+		expect( TestUtils.scryRenderedDOMComponentsWithTag(tdHide, 'p') ).toEqual([]);
 
 		expect(tdShow.props.if).toEqual(true);
 		expect(tdHide.props.if).toEqual(false);
