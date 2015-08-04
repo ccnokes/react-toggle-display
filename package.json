@@ -1,6 +1,6 @@
 {
   "name": "react-toggle-display",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Hide/show a component's children",
   "repository": {
     "type": "git",
