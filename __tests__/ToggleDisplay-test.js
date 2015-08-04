@@ -59,7 +59,7 @@ describe('ToggleDisplay', function() {
 		expect(tdHideRoot.props.style).toEqual({display:'none'});
 	});
 
-	it('should load it\'s children as configured', function() {
+	it('should conditionally render it\'s children as configured', function() {
 		var tdShow = TestUtils.renderIntoDocument(
 			<ToggleDisplay if={true}>
 				<p>test</p>
@@ -73,12 +73,11 @@ describe('ToggleDisplay', function() {
 		);
 
 		var tdShowRoot = TestUtils.findRenderedDOMComponentWithTag(tdShow, 'span');
-		var tdHideRoot = TestUtils.findRenderedDOMComponentWithTag(tdHide, 'span');
+		//react returns a <noscript> if null is returned, so we check for that
+		var tdHideRoot = TestUtils.findRenderedDOMComponentWithTag(tdHide, 'noscript');
 
-		expect(tdShowRoot.props.if).toEqual(true);
-		expect(tdShowRoot.props.style).toEqual({});
-
-		expect(tdHideRoot.props).toEqual({});
+		expect(tdShow.props.if).toEqual(true);
+		expect(tdHide.props.if).toEqual(false);
 	});
 	
 });
