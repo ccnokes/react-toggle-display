@@ -10,7 +10,8 @@
   "scripts": {
     "test": "jest",
     "build": "node ./node_modules/gulp/bin/gulp.js build",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "make:example": "browserify example/example.jsx -t babelify -t reactify -o example/example.bundle.js"
   },
   "keywords": [
     "react",
@@ -26,11 +27,15 @@
     "react": ">=0.11.0"
   },
   "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.1.0",
     "jest-cli": "^0.4.15",
+    "react": ">=0.11.0",
+    "react-addons-test-utils": "^0.14.0",
     "react-tools": "^0.13.3",
-    "react": ">=0.11.0"
+    "reactify": "^1.1.1"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/preprocessor.js",

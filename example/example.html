@@ -3,45 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>React Simulate</title>
-  <script src="../node_modules/react/dist/JSXTransformer.js"></script>
-  <script src="../node_modules/react/dist/react.js"></script>
-  <script src="../dist/index.js"></script>
+  <script src="https://fb.me/react-with-addons-0.14.0.js"></script>
+  <script src="https://fb.me/react-dom-0.14.0.js"></script>
 </head>
 <body>
-  <main></main>
-  <script type="text/jsx">
-    var App = React.createClass({
-
-        getInitialState: function() {
-            return {
-                show: true
-            };
-        },
-
-        handleClick: function() {
-            this.setState({ show: !this.state.show });
-        },
-
-        render: function() {
-            return (
-                <div>
-                    <ToggleDisplay show={this.state.show}>
-                        Hello
-                    </ToggleDisplay>
-                    <ToggleDisplay if={this.state.show}>
-                        , you!
-                    </ToggleDisplay>
-                    <ToggleDisplay hide={this.state.show}>
-                        Is it me you're looking for?
-                    </ToggleDisplay>
-                    <br /><br />
-                    <button onClick={this.handleClick}>Toggle</button>
-                </div>
-            );
-        }
-    });
-
-    React.render(<App />, document.getElementsByTagName('main')[0]);
-  </script>
+  <main>
+      <em>Loading...</em>
+  </main>
+  <script src="example.bundle.js"></script>
 </body>
 </html>

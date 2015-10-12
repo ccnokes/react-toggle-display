@@ -1,11 +1,11 @@
 jest.dontMock('../index.jsx');
 
-var React = require('react/addons');
+var React = require('react');
 var ToggleDisplay = require('../index.jsx');
-var TestUtils = React.addons.TestUtils;
+var TestUtils = require('react-addons-test-utils');
 
 describe('ToggleDisplay', function() {
-	
+
 	it('should show it\'s children', function() {
 		//render component into doc
 		var tdShow = TestUtils.renderIntoDocument(
@@ -19,7 +19,7 @@ describe('ToggleDisplay', function() {
 				<p>test</p>
 			</ToggleDisplay>
 		);
-		
+
 		//get root element
 		var tdShowRoot = TestUtils.findRenderedDOMComponentWithTag(tdShow, 'span');
 		var tdHideRoot = TestUtils.findRenderedDOMComponentWithTag(tdHide, 'span');
@@ -47,7 +47,7 @@ describe('ToggleDisplay', function() {
 				<p>test</p>
 			</ToggleDisplay>
 		);
-		
+
 		var tdShowRoot = TestUtils.findRenderedDOMComponentWithTag(tdShow, 'span');
 		var tdHideRoot = TestUtils.findRenderedDOMComponentWithTag(tdHide, 'span');
 
@@ -59,7 +59,7 @@ describe('ToggleDisplay', function() {
 		expect(tdHideRoot.props.style).toEqual({display:'none'});
 	});
 
-	it('should conditionally render it\'s children as configured', function() {
+	it('should conditionally render it\'s children', function() {
 		var tdShow = TestUtils.renderIntoDocument(
 			<ToggleDisplay if={true}>
 				<p>test</p>
@@ -80,5 +80,5 @@ describe('ToggleDisplay', function() {
 		expect(tdShow.props.if).toEqual(true);
 		expect(tdHide.props.if).toEqual(false);
 	});
-	
+
 });

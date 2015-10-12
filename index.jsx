@@ -21,47 +21,40 @@
 		return val != null;
 	}
 
-	return React.createClass({
-		
-		propTypes: {
-			hide: React.PropTypes.bool,
-			show: React.PropTypes.bool,
-			if: React.PropTypes.bool
-		},
+	function shouldHide(props) {
+		let shouldHide;
+		if(isDefined(props.show)) {
+			shouldHide = !props.show;
+		}
+		else if(isDefined(props.hide)) {
+			shouldHide = props.hide;
+		}
+		else {
+			shouldHide = false;
+		}
+		return shouldHide;
+	}
 
-		shouldHide: function() {
-			var shouldHide;
-			if(isDefined(this.props.show)) {
-				shouldHide = !this.props.show;
-			}
-			else if(isDefined(this.props.hide)) {
-				shouldHide = this.props.hide;
-			}
-			else {
-				shouldHide = false;
-			}
-
-			return shouldHide;
-		},
-
-		render: function() {
-
-			//renders a <noscript> per React's implementation
-			if(this.props.if === false) {
-				return null;
-			}
-
-			var style = {};
-
-			if(this.shouldHide()) {
-				style.display = 'none';
-			}
-
-			return (
-				<span style={style} {...this.props} />
-			);
+	function ToggleDisplay(props) {
+		//renders a <noscript> per React's implementation
+		if(props.if === false) {
+			return null;
 		}
 
-	});
+		let style = {};
+		if(shouldHide(props)) {
+			style.display = 'none';
+		}
+		return (
+			<span style={style} {...props} />
+		);
+	}
 
+	ToggleDisplay.propTypes = {
+		hide: React.PropTypes.bool,
+		show: React.PropTypes.bool,
+		if: React.PropTypes.bool
+	};
+
+	return ToggleDisplay;
 }));
