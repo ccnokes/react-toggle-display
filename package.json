@@ -1,46 +1,42 @@
 {
-  "name": "react-toggle-display",
-  "version": "1.1.0",
-  "description": "Hide/show a component's children",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ccnokes/react-toggle-display"
-  },
-  "main": "./dist/index.js",
-  "scripts": {
-    "test": "jest",
-    "build": "node ./node_modules/gulp/bin/gulp.js build",
-    "prepublish": "npm run build",
-    "make:example": "browserify example/example.jsx -t babelify -t reactify -o example/example.bundle.js"
-  },
-  "keywords": [
-    "react",
-    "react-component",
-    "hide",
-    "show",
-    "toggle",
-    "component"
-  ],
-  "author": "Cameron Nokes",
-  "license": "MIT",
-  "peerDependencies": {
-    "react": ">=0.11.0"
-  },
-  "devDependencies": {
-    "babelify": "^6.3.0",
-    "browserify": "^11.2.0",
-    "gulp": "^3.9.0",
-    "gulp-babel": "^5.1.0",
-    "jest-cli": "^0.4.15",
-    "react": ">=0.11.0",
-    "react-addons-test-utils": "^0.14.0",
-    "react-tools": "^0.13.3",
-    "reactify": "^1.1.1"
-  },
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/preprocessor.js",
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react"
-    ]
-  }
+    "name": "react-toggle-display",
+    "version": "2.0.0",
+    "description": "Hide/show a component's children",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ccnokes/react-toggle-display"
+    },
+    "main": "./dist/index.js",
+    "scripts": {
+        "test": "babel-node ./__tests__/ToggleDisplay-test.js",
+        "build": "babel index.jsx -o dist/index.js",
+        "prepublish": "npm run build"
+    },
+    "keywords": [
+        "react",
+        "reactjs",
+        "react-component",
+        "hide",
+        "show",
+        "toggle",
+        "component",
+        "functional-component"
+    ],
+    "author": "Cameron Nokes",
+    "license": "MIT",
+    "devDependencies": {
+        "babel": "5.8.34",
+        "babel-core": "5.8.34",
+        "babel-loader": "5.3.3",
+        "babel-plugin-react-transform": "1.1.1",
+        "browserify": "^11.2.0",
+        "cheerio": "0.19.0",
+        "react-tools": "^0.13.3",
+        "redbox-react": "1.1.1",
+        "tape": "4.2.2"
+    },
+    "dependencies": {
+        "react": "0.14.2",
+        "react-dom": "0.14.2"
+    }
 }

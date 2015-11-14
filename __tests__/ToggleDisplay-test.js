@@ -1,84 +1,58 @@
-jest.dontMock('../index.jsx');
+import React from 'react';
+import reactDom from 'react-dom/server';
+import test from 'tape';
+import dom from 'cheerio';
+import ToggleDisplay from '../index.jsx';
 
-var React = require('react');
-var ToggleDisplay = require('../index.jsx');
-var TestUtils = require('react-addons-test-utils');
+const render = reactDom.renderToStaticMarkup;
 
-describe('ToggleDisplay', function() {
+test('ToggleDisplay', t => {
+	let el =
+	<ToggleDisplay show={true}>
+		<p>test</p>
+	</ToggleDisplay>;
+	let $ = dom.load(render(el));
 
-	it('should show it\'s children', function() {
-		//render component into doc
-		var tdShow = TestUtils.renderIntoDocument(
-			<ToggleDisplay show={true}>
-				<p>test</p>
-			</ToggleDisplay>
-		);
+	let hasP = $('p').length > 0;
+	t.equal(true, hasP, 'should be a <p> in the DOM');
+	t.end();
+});
 
-		var tdHide = TestUtils.renderIntoDocument(
-			<ToggleDisplay hide={false}>
-				<p>test</p>
-			</ToggleDisplay>
-		);
-
-		//get root element
-		var tdShowRoot = TestUtils.findRenderedDOMComponentWithTag(tdShow, 'span');
-		var tdHideRoot = TestUtils.findRenderedDOMComponentWithTag(tdHide, 'span');
-
-		//make sure the unit test is working
-		expect( TestUtils.isCompositeComponent(tdShow) ).toBe(true);
-
-		expect(tdShowRoot.props.show).toEqual(true);
-		expect(tdShowRoot.props.style).toEqual({});
-
-		expect(tdHideRoot.props.hide).toEqual(false);
-		expect(tdHideRoot.props.style).toEqual({});
-	});
-
-	//just the inverse of above
-	it('should hide it\'s children', function() {
-		var tdShow = TestUtils.renderIntoDocument(
-			<ToggleDisplay show={false}>
-				<p>test</p>
-			</ToggleDisplay>
-		);
-
-		var tdHide = TestUtils.renderIntoDocument(
-			<ToggleDisplay hide={true}>
-				<p>test</p>
-			</ToggleDisplay>
-		);
-
-		var tdShowRoot = TestUtils.findRenderedDOMComponentWithTag(tdShow, 'span');
-		var tdHideRoot = TestUtils.findRenderedDOMComponentWithTag(tdHide, 'span');
+test('ToggleDisplay should hide it\'s children', t => {
+	let el =
+	<ToggleDisplay show={false}>
+		<p>test</p>
+	</ToggleDisplay>;
+	let $ = dom.load(render(el));
 
 
-		expect(tdShowRoot.props.show).toEqual(false);
-		expect(tdShowRoot.props.style).toEqual({display:'none'});
+	let isHidden = $('span').css('display') === 'none';
+	t.equal(true, isHidden, 'should be a display:none prop on the <span>');
+	t.end();
+});
 
-		expect(tdHideRoot.props.hide).toEqual(true);
-		expect(tdHideRoot.props.style).toEqual({display:'none'});
-	});
+test('ToggleDisplay should conditionally render it\'s children (true)', t => {
+	let el =
+	<ToggleDisplay if={true}>
+		<p>test</p>
+	</ToggleDisplay>;
+	let $ = dom.load(render(el));
 
-	it('should conditionally render it\'s children', function() {
-		var tdShow = TestUtils.renderIntoDocument(
-			<ToggleDisplay if={true}>
-				<p>test</p>
-			</ToggleDisplay>
-		);
+	let isInDOM = $.html().length > 0;
+	t.equal(true, isInDOM, 'should exist in DOM');
+	t.end();
+});
 
-		var tdHide = TestUtils.renderIntoDocument(
-			<ToggleDisplay if={false}>
-				<p>test</p>
-			</ToggleDisplay>
-		);
+test('ToggleDisplay should conditionally render it\'s children (false)', t => {
+	let el =
+	<ToggleDisplay if={false}>
+		<p>test</p>
+	</ToggleDisplay>;
+	let $ = dom.load(render(el));
 
-		var tdShowRoot = TestUtils.findRenderedDOMComponentWithTag(tdShow, 'span');
-		//react returns a <noscript> if null is returned but that behavior doesn't seem to be testable
-		//instead, check for the <p>. It shouldn't be there and an empty array should be returned
-		expect( TestUtils.scryRenderedDOMComponentsWithTag(tdHide, 'p') ).toEqual([]);
-
-		expect(tdShow.props.if).toEqual(true);
-		expect(tdHide.props.if).toEqual(false);
-	});
-
+	let hasNoScript = $('noscript').length > 0;
+	let hasP = $('p').length > 0;
+	t.equal(true, hasNoScript, 'should be a <noscript>');
+	t.equal(false, hasP, 'should not be a <p>');
+	t.end();
 });

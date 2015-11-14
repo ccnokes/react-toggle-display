@@ -36,9 +36,9 @@
 	}
 
 	function ToggleDisplay(props) {
-		//renders a <noscript> per React's implementation
 		if(props.if === false) {
-			return null;
+			return <noscript></noscript>;
+			// return null // this used to work, now have to manually return <noscript>
 		}
 
 		let style = {};
