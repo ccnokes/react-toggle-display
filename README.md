@@ -67,6 +67,6 @@ Big thanks to [willgm](https://github.com/willgm) for his contributions.
 
 ## Change Notes
 
-Note that if you are using a version under 0.1.1, you will have to compile react-toggle-display's JSX yourself. I recommend just updating to 1.x so you don't have to wory about that. No breaking API changes in 1.x.
+Note that if you are using a version under 0.1.1, you will have to compile react-toggle-display's JSX yourself. I recommend just updating to 1.x so you don't have to worry about that. No breaking API changes in 1.x.
 
 While v2 does not change anything functionally, it was refactored to be a ["stateless functional component"](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components), which won't work in React versions less than 0.14.
