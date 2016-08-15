@@ -45,6 +45,8 @@ export default React.createClass({
 
 `if` - boolean
 
+`tag` - string. The tag name to use as the ToggleDisplay element. Defaults to span.
+
 The two first props are simply the inverse of each other. Using both at the same time will result in canceling each other out.
 
 
