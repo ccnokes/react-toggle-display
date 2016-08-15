@@ -1,3 +1,11 @@
 {
-    "presets": ["stage-0", "es2015", "react"]
+    "presets": ["stage-0", "es2015", "react"],
+    "plugins": [
+      ["babel-plugin-transform-es2015-modules-umd", {
+        "globals": {
+          "react": "React"
+        },
+        "exactGlobals": true
+      }]
+    ]
 }

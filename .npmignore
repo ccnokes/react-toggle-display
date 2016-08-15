@@ -1,1 +1,3 @@
 *.jsx
+__tests__
+*.md
