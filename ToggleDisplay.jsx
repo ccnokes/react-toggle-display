@@ -1,5 +1,18 @@
 import React from 'react';
 
+ToggleDisplay.propTypes = {
+	tag: React.PropTypes.string,
+	hide: React.PropTypes.bool,
+	show: React.PropTypes.bool,
+	if: React.PropTypes.bool
+};
+
+ToggleDisplay.defaultProps = {
+	tag: 'span'
+};
+
+const propsToRemove = Object.keys(ToggleDisplay.propTypes);
+
 function isDefined(val) {
 	return val != null;
 }
@@ -14,6 +27,16 @@ function shouldHide(props) {
 	return false;
 }
 
+function pickProps(props) {
+	const newProps = Object.assign({}, props);
+	propsToRemove.forEach(prop => {
+		if(prop in newProps) {
+			delete newProps[prop];
+		}
+	});
+	return newProps;
+}
+
 export default function ToggleDisplay(props) {
 	if(props.if === false) {
 		return <noscript></noscript>;
@@ -26,18 +49,10 @@ export default function ToggleDisplay(props) {
 	}
 
 	const Tag = props.tag;
+	// prevent our props from being leaked down onto the children
+	const newProps = pickProps(props);
+
 	return (
-		<Tag style={style} {...props} />
+		<Tag style={style} {...newProps} />
 	);
 }
-
-ToggleDisplay.propTypes = {
-	tag: React.PropTypes.string,
-	hide: React.PropTypes.bool,
-	show: React.PropTypes.bool,
-	if: React.PropTypes.bool
-};
-
-ToggleDisplay.defaultProps = {
-	tag: 'span'
-};
