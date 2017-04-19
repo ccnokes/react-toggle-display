@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 ToggleDisplay.propTypes = {
-	tag: React.PropTypes.string,
-	hide: React.PropTypes.bool,
-	show: React.PropTypes.bool,
-	if: React.PropTypes.bool
+	tag: PropTypes.string,
+	hide: PropTypes.bool,
+	show: PropTypes.bool,
+	if: PropTypes.bool
 };
 
 ToggleDisplay.defaultProps = {
