@@ -40,8 +40,7 @@ function pickProps(props) {
 
 export default function ToggleDisplay(props) {
 	if(props.if === false) {
-		return <noscript></noscript>;
-		// return null // this used to work, now have to manually return <noscript>
+		return null;
 	}
 
 	let style = {};

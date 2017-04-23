@@ -50,10 +50,10 @@ test('ToggleDisplay should conditionally render it\'s children (false)', t => {
 	</ToggleDisplay>;
 	let $ = dom.load(render(el));
 
-	let hasNoScript = $('noscript').length > 0;
 	let hasP = $('p').length > 0;
-	t.equal(true, hasNoScript, 'should be a <noscript>');
+	let hasSpan = $('span').length > 0;
 	t.equal(false, hasP, 'should not be a <p>');
+	t.equal(false, hasSpan, 'should not be a <span>');
 	t.end();
 });
 
