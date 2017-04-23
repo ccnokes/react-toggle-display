@@ -35,11 +35,11 @@ class App extends Component {
           <button onClick={ () => this.handleClick() }>Toggle things</button>
         </p>
         <ToggleDisplay show={this.state.show}>
-          I'll be rendered in a <span> (by default) and hidden with display:none when `show` is false.
+          I'll be rendered in a <span> (by default) and hidden with display:none when show is false.
         </ToggleDisplay>
 
         <ToggleDisplay if={this.state.show} tag="section">
-          I'll be rendered in a <section> and removed from the DOM when `if` is false.
+          I'll be rendered in a <section> and removed from the DOM when if is false.
         </ToggleDisplay>
       </div>
     );
