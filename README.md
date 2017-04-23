@@ -13,25 +13,40 @@ This allows you to DRY up statements like this:
 Example usage:
 
 ```javascript
+import React, { Component } from 'react';
 import ToggleDisplay from 'react-toggle-display';
 
-export default React.createClass({
+class App extends Component {
+  constructor() {
+    super();
+    this.state = { show: false };
+  }
 
-	getInitialState() {
-		return {
-			isAuthorized: false
-		};
-	},
+  handleClick() {
+    this.setState({
+      show: !this.state.show
+    });
+  }
 
-	render() {
-		return (
-			<ToggleDisplay show={this.state.isAuthorized}>
-				<p>Secret stuff for authorized people only.</p>
-			</ToggleDisplay>
-		);
-	}
+  render() {
+    return (
+      <div className="App">
+        <p className="App-intro">
+          <button onClick={ () => this.handleClick() }>Toggle things</button>
+        </p>
+        <ToggleDisplay show={this.state.show}>
+          I'll be rendered in a <span> (by default) and hidden with display:none when `show` is false.
+        </ToggleDisplay>
 
-});
+        <ToggleDisplay if={this.state.show} tag="section">
+          I'll be rendered in a <section> and removed from the DOM when `if` is false.
+        </ToggleDisplay>
+      </div>
+    );
+  }
+}
+
+export default App;
 
 ```
 [View demo](https://jsfiddle.net/ccnokes/oqttsu83/)
@@ -72,3 +87,6 @@ Big thanks to [willgm](https://github.com/willgm) for his contributions.
 Note that if you are using a version under 0.1.1, you will have to compile react-toggle-display's JSX yourself. I recommend just updating to 1.x so you don't have to worry about that. No breaking API changes in 1.x.
 
 While v2 does not change anything functionally, it was refactored to be a ["stateless functional component"](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components), which won't work in React versions less than 0.14.
+
+v2.2 adds the `prop-types` package to get rid of some warnings when using React 15.5
+
