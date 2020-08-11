@@ -26,17 +26,18 @@
   "author": "Cameron Nokes",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "6.1.18",
-    "babel-plugin-transform-es2015-modules-umd": "^6.12.0",
-    "babel-preset-es2015": "6.1.18",
-    "babel-preset-react": "6.1.18",
-    "babel-preset-stage-0": "6.1.18",
-    "cheerio": "0.19.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "tape": "4.2.2"
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "cheerio": "1.0.0-rc.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "tape": "5.0.1"
   },
   "dependencies": {
-    "prop-types": "^15.5.8"
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "prop-types": "^15.7.2"
   }
 }

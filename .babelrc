@@ -1,11 +1,4 @@
 {
-    "presets": ["stage-0", "es2015", "react"],
-    "plugins": [
-      ["babel-plugin-transform-es2015-modules-umd", {
-        "globals": {
-          "react": "React"
-        },
-        "exactGlobals": true
-      }]
-    ]
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
 }
